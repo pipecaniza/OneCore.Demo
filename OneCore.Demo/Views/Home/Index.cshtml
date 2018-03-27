@@ -1,0 +1,38 @@
+﻿@model IEnumerable<UserViewModel>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h2>Consulta usuarios</h2>
+
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <td>Id</td>
+                <td>Usuario</td>
+                <td>Correo</td>
+                <td>Sexo</td>
+                <td>Estatus</td>
+                <td>Acciones</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+            <tr>
+                <td>@user.Id</td>
+                <td>@user.UserName</td>
+                <td>@user.Email</td>
+                <td>@user.Gender</td>
+                <td>@user.Status</td>
+                <td>
+                    @Html.ActionLink("Editar", "Index", "Manage", new { id = user.Id }) |
+                    @Html.ActionLink("Eliminar", "Delete", "Manage", new { id = user.Id })
+                </td>                
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

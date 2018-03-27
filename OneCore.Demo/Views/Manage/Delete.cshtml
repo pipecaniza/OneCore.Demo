@@ -1,0 +1,44 @@
+﻿@model OneCore.Demo.Models.UserViewModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Está seguro de eliminar este usuario?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+    </dl>
+    
+    <form asp-action="ConfirmDelete">
+        <input type="hidden" value="@Model.Id" name="id" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index" asp-controller="Home">Back to List</a>
+    </form>
+</div>
